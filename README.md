@@ -22,20 +22,20 @@
 ### 方式一：curl
 
 ```bash
-bash <(curl -sSL https://raw.githubusercontent.com/sororain/ddns/main/ddns.sh)
+bash <(curl -sSL https://raw.githubusercontent.com/soroace/ddns/main/ddns.sh)
 ```
 
 ### 方式二：wget
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/sororain/ddns/main/ddns.sh | bash
+wget -qO- https://raw.githubusercontent.com/soroace/ddns/main/ddns.sh | bash
 ```
 
 ### ✅ 安装要求
 
-- 操作系统：Linux（Debian / Ubuntu / CentOS / Alpine 等）
+- 操作系统：Linux（需 systemd，如 Debian / Ubuntu / CentOS 等）
 - 权限：需要 **root** 或 **sudo** 权限
-- 依赖：`curl`、`wget`、`tar`（脚本会自动安装缺失项）
+- 依赖：`bash`、`curl`、`tar`（`curl` 缺失时脚本会自动安装，`tar` 需系统自带；`wget` 可选）
 
 ---
 
@@ -57,7 +57,7 @@ ddns
 | 参数 | 值 | 说明 |
 |------|-----|------|
 | 检查间隔 | `10 秒` | 每 10 秒检查一次 IP 变化 |
-| 缓存时间 | `360 分钟` | DNS 记录缓存时间 |
+| 服务商比对 | `每 360 次检查` | IP 未变化时约 60 分钟比对一次，IP 变化立即触发更新 |
 | 配置文件 | `/opt/ddns-go/.ddns_go_config.yaml` | 配置文件路径 |
 
 ---
